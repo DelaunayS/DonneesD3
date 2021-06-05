@@ -1,0 +1,64 @@
+body {
+  background-color: #B6D8F2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#title {
+  text-align: center;
+}
+
+#graphContainer {
+  border: 1px solid black;
+  margin: auto;
+  text-align: center;
+  background-color: white;
+}
+
+#legend {
+  width: 50%;
+  background-color: white;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 2;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.dot:hover {
+  stroke-width: 2;
+  stroke: blue;
+}
+
+.orange {
+  background-color: #F27438;
+  border: 1px solid black;
+  padding: 3px;
+  font-size: 12px;
+}
+
+.vert {
+  background-color: #7AA95C;
+  border: 1px solid black;
+  padding: 3px;
+  font-size: 12px;
+}
+
+#tooltip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  padding: 5px;
+  font-size: 16px;
+  background-color: #2CCED2;
+  box-shadow: 1px 1px 10px;
+  border-radius: 2px;
+  pointer-events: none;
+}
