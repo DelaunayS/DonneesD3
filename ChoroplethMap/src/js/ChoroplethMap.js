@@ -105,8 +105,8 @@ const createLegend = () =>{
   
   /*ajout d'une explication*/
   svgLegend.append('text') 
-          .attr('y','25')
-          .attr('x','500')          
+          .attr('y','75')
+          .attr('x','100')          
           .html('Source : '
           +'<a style="stroke:blue" href="https://www.ers.usda.gov/data-products/county-level-data-sets/download-data.aspx">'
           +'USDA Economics Research Service'
@@ -164,8 +164,8 @@ const createLegend = () =>{
       .ticks(5)
       .tickFormat(formatPercent);
          
-      svgLegend.attr("width", width)
-              .attr("height", 60)         
+      svgLegend.attr("width", width/2)
+              .attr("height", 85)         
 
       for (let i=0;i<6;i++){
                  addRect(i)

@@ -11,7 +11,7 @@ let yScale,xScale,legendScale
 
 const margin={top: 50, right: 30, bottom: 10, left: 70},
 width=1000,
-height=700
+height=600
 
 /*Zone du svg Container*/ 
 let svgContainer = d3.select('#graphContainer')
@@ -157,8 +157,8 @@ const createLegend = () =>{
     
     /*ajout d'une explication*/
     svgLegend.append('text') 
-            .attr('y','25')
-            .attr('x','20')                     
+            .attr('y','15')
+            .attr('x','50')                     
             .text('Variation / température de base (8,66°C) : ')
 
     /*définit l'ajout d'un rectangle dans la légende*/
@@ -197,21 +197,22 @@ const createLegend = () =>{
             .attr('fill',color)     
             .attr('width','50')
             .attr('height','25')
-            .attr('y','10')
-            .attr('x',(arg*50)+400)
+            .attr('y','25')
+            .attr('x',(arg*50)+50)
     }  
     /*définit l'axe de la légende et ses valeurs*/
 
     let scaleLegend=d3.scaleLinear()
         .domain([-2.5,2.5])
-        .range([450,700])
+        .range([100,350])  
+             
     
     let legend_axis=d3.axisBottom()
                       .scale(scaleLegend)
-
+                      
       
-        svgLegend.attr("width", width)
-                .attr("height", 60)         
+        svgLegend.attr("width", width/2)
+                .attr("height", 70)         
 
         for (let i=0;i<7;i++){
             addRect(i)
@@ -220,7 +221,7 @@ const createLegend = () =>{
         svgLegend.append('g') 
                 .call(legend_axis) 
                 .attr('class','legend_axis')                  
-                .attr('transform','translate(0,35)')    
+                .attr('transform','translate(0,50)')    
 }     
 
 /*récupération et utilisation des données dataJson*/

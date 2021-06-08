@@ -146,56 +146,76 @@ const createLegend = () =>{
 
     let svgLegend = d3.select('#legend') 
 
-    svgLegend.attr("width", width)
-             .attr("height", 60)  
+    svgLegend.attr("width", width/2)
+             .attr("height", 85)  
              
-    const itemLegend =(index) => {
+    const itemLegendLine1 =(index) => {
 
-   svgLegend.append('rect')
-            .attr('class','legend-item')
-            .attr('width',20)
-            .attr('height',20)
-            .attr('fill',(color[index])) 
-            .attr('transform','translate('+(10+index*140)+',20)')
+            svgLegend.append('rect')
+                     .attr('class','legend-item')
+                     .attr('width',20)
+                     .attr('height',20)
+                     .attr('fill',(color[index])) 
+                     .attr('transform','translate('+(5+index*120)+',15)')
 
-    svgLegend.append('text')
-             .attr('x',(35+index*140))
-             .attr('y',35)
-             .text(()=>{
-                 switch (index) {
-                     case 0:
-                         return 'Action'                         
-                         break;
-                    case 1:
-                        return 'Drame'                         
-                        break;
-                    case 2:
-                        return 'Aventure'                         
-                        break;
-                    case 3:
-                        return 'Familial'                         
-                        break;
-                    case 4:
-                        return 'Animation'                         
-                        break;
-                    case 5:
-                        return 'Comédie'                         
-                        break;
-                    case 6:
-                        return 'Biographie'                         
-                        break;                 
-                    default:
-                        break;
-                 }
+            svgLegend.append('text')
+                    .attr('x',(27+index*120))
+                    .attr('y',30)
+                    .text(()=>{
+                        switch (index) {
+                            case 0:
+                                return 'Action'                         
+                                break;
+                            case 1:
+                                return 'Drame'                         
+                                break;
+                            case 2:
+                                return 'Aventure'                         
+                                break;
+                            case 3:
+                                return 'Familial'                         
+                                break;                                         
+                            default:
+                                break;
+                        }
+                    })
+                }
 
-             })
-             
-}
+                const itemLegendLine2 =(index) => {
+
+                        svgLegend.append('rect')
+                                .attr('class','legend-item')
+                                .attr('width',20)
+                                .attr('height',20)
+                                .attr('fill',(color[index])) 
+                                .attr('transform','translate('+(5-360+index*120)+',55)')
+                    
+                        svgLegend.append('text')
+                                .attr('x',(27-360+index*120))
+                                .attr('y',70)
+                                .text(()=>{
+                                    switch (index) {                                      
+                                     case 4:
+                                         return 'Animation'                         
+                                         break;
+                                     case 5:
+                                         return 'Comédie'                         
+                                         break;
+                                     case 6:
+                                         return 'Biographie'                         
+                                         break;                 
+                                     default:
+                                         break;
+                                  }
+                                 })             
+                        }
     
-    for (let i=0 ; i<7 ; i++){
-        itemLegend(i)
+    for (let i=0 ; i<4 ; i++){
+        itemLegendLine1(i)
     }
-   
+    for (let i=4 ; i<7 ; i++){
+        itemLegendLine2(i)
+    }   
 }     
 
 /*récupération et utilisation des données dataJson*/
